@@ -4,66 +4,185 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LMNTRX Shoes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/inicio.css">
 </head>
 <body>
     <header>
-        <div class="logo">
-            LMNTRX Shoes
+        <div class="header-content">
+            <div class="logo">
+                <img src="../img/logo.png" alt="logo">
+                <span>LMNTRX Shoes</span>
+            </div>
+            <div class="barra-de-pesquisa">
+                <input type="text" placeholder="Pesquisar...">
+                <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button> 
+            </div>           
+            <div class="login">
+                <a href="login.html">Login</a>
+            </div>
+            <div class="carrinho">
+                <button class="botao-carrinho">
+                    <i class="fa-solid fa-cart-plus"></i>
+                </button>
+            </div>
         </div>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Automobilismo</a></li>
-                <li><a href="#">Aventura</a></li>
-                <li><a href="#">Basquete</a></li>
-                <li><a href="#">Caminhada</a></li>
-                <li><a href="#">Corrida</a></li>
-                <li><a href="#">Esportes de quadra</a></li>
-                <li><a href="#">Streetwar</a></li>
-                <li><a href="#">Tennis e Squash</a></li>
-                <li><a href="#">Ofertas</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="categorias/automobilismo.html">Automobilismo</a></li>
+                <li><a href="categorias/aventura.html">Aventura</a></li>
+                <li><a href="categorias/basquete.html">Basquete</a></li>
+                <li><a href="categorias/caminhada.html">Caminhada</a></li>
+                <li><a href="categorias/corrida.html">Corrida</a></li>
+                <li><a href="categorias/esporte-de-quadra.html">Esportes de quadra</a></li>
+                <li><a href="categorias/streetwar.html">Streetwar</a></li>
+                <li><a href="categorias/tennis-e-squash.html">Tennis e Squash</a></li>
+                <li><a href="categorias/ofertas.html">Ofertas</a></li>
             </ul>
         </nav>
-        <div class="search-cart">
-            <input type="text" placeholder="Pesquisar...">
-            <button class="cart-button">🛒</button>
-        </div>
-    </header>
+    </header>    
 
     <main>
-        <img src="../img/logo.png" alt="logo">
-        <section class="featured-products">
+        <section class="produtos-destaque">
             <h2>Produtos em Destaque</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="produto1.jpg" alt="Calçado 1">
-                    <h3>Calçado 1</h3>
-                    <p>R$ 199,90</p>
-                    <button class="btn">Adicionar ao Carrinho</button>
+            <div class="grade-produto">
+                <div class="produto">
+                    <img src="../img/categorias/streetwar/tenis-qix-skate-retro-am-cinza-branco-preto.jpeg" alt="Tênis Qix Skate Retrô AM Preto Cinza Branco">
+                    <h3>Tênis Qix Skate Retrô AM Preto Cinza Branco</h3>
+                    <p>R$ 239,99</p>
+                    <button class="botao-adicionar-carrinho">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
                 </div>
-                <div class="product-card">
-                    <img src="produto2.jpg" alt="Calçado 2">
-                    <h3>Calçado 2</h3>
-                    <p>R$ 249,90</p>
-                    <button class="btn">Adicionar ao Carrinho</button>
+                <div class="produto">
+                    <img src="../img/categorias/automobilismo/tenis-puma-mapf-neo-cat-branco.jpeg" alt="Tênis Puma MAPF1 Neo Cat - Branco">
+                    <h3>Tênis Puma MAPF1 Neo Cat - Branco</h3>
+                    <p>R$ 499,90</p>
+                    <button class="botao-adicionar-carrinho">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
                 </div>
-                <div class="product-card">
-                    <img src="produto3.jpg" alt="Calçado 3">
-                    <h3>Calçado 3</h3>
-                    <p>R$ 149,90</p>
-                    <button class="btn">Adicionar ao Carrinho</button>
+                <div class="produto">
+                    <img src="../img/categorias/basquete/tenis-under-armour-basquete-spawn-3-masculino-vermelho+branco.jpeg" alt="Tênis Under Armour Basquete Spawn 3 Masculino - Vermelho+Branco">
+                    <h3>Tênis Under Armour Basquete Spawn 3 Masculino - Vermelho+Branco</h3>
+                    <p>R$ 237,49</p>
+                    <button class="botao-adicionar-carrinho">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
                 </div>
-                <div class="product-card">
-                    <img src="produto4.jpg" alt="Calçado 4">
-                    <h3>Calçado 4</h3>
-                    <p>R$ 299,90</p>
-                    <button class="btn">Adicionar ao Carrinho</button>
+                <div class="produto">
+                    <img src="../img/categorias/caminhada/tenis-adidas-ultra-energy-feminino-rosa.jpeg" alt="Tênis Adidas Ultra Energy Feminino - Rosa">
+                    <h3>Tênis Adidas Ultra Energy Feminino - Rosa</h3>
+                    <p>R$ 227,99</p>
+                        <button class="botao-adicionar-carrinho">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
                 </div>
-            </div>
+                <div class="produto">
+                    <img src="../img/categorias/corrida/tenis-feminino-mizuno-advance-azul-claro+bege.jpeg" alt="Tênis Feminino Mizuno Advance - Azul Claro+Bege">
+                    <h3>Tênis Feminino Mizuno Advance - Azul Claro+Bege</h3>
+                    <p>R$ 227,99</p>
+                    <button class="botao-adicionar-carrinho">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+                <div class="produto">
+                    <img src="../img/categorias/esporte-de-quadra/tenis-asics-gel-resolution-9-branco-e-laranja.jpeg" alt="Tênis Asics Gel Resolution 9 Branco e Laranja">
+                    <h3>Tênis Asics Gel Resolution 9 Branco e Laranja</h3>
+                    <p>R$ 999,00</p>
+                    <button class="botao-adicionar-carrinho">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+                <div class="produto">
+                    <img src="../img/categorias/tennis-e-squash/tenis-fila-axilus-ace-masculino-marinho+vermelho.jpeg" alt="Tênis Fila Axilus Ace Masculino - Marinho+Vermelho">
+                    <h3>Tênis Fila Axilus Ace Masculino - Marinho+Vermelho</h3>
+                    <p>R$ 284,99</p>
+                    <button class="botao-adicionar-carrinho">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+                <div class="produto">
+                    <img src="../img/categorias/aventura/bota-cano-alto-macboot-guarani-02-masculina-kaki.jpeg" alt="Bota Cano Alto Macboot Guarani 02 Masculina - Kaki">
+                    <h3>Bota Cano Alto Macboot Guarani 02 Masculina - Kaki</h3>
+                    <p>R$ 389,90</p>
+                    <button class="botao-adicionar-carrinho">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+                <div class="produto">
+                    <img src="../img/categorias/streetwar/tenis-skate-tw-branco-verde.jpg" alt="Tênis skate TW branco e verde">
+                    <h3>Tênis skate TW branco e verde</h3>
+                    <p>R$ 194,90</p>
+                    <button class="botao-adicionar-carrinho">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+                <div class="produto">
+                    <img src="../img/categorias/streetwar/tenis-air-jordan-1-elevate-low-feminino.jpg" alt="Tênis Air Jordan 1 Elevate Low Feminino">
+                    <h3>Tênis Air Jordan 1 Elevate Low Feminino</h3>
+                    <p>R$ 1.082,99</p>
+                    <button class="botao-adicionar-carrinho">
+                        <i class="fa-solid fa-cart-plus"></i>
+                    </button>
+                </div>
+            </div>                      
         </section>
     </main>
 
+    <footer>
+        <div class="informativo">
+            <p>Este site é um portfólio e trabalho de faculdade, sem fins lucrativos.</p>
+        </div>
+        <div class="colaboradores">
+            <p>
+                Alice Queiróz 
+                <span class="gitHub">
+                    <a href="https://github.com/aliceqo" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </span>
+            </p>
+            <p>
+                Gustavo Henrique 
+                <span class="gitHub">
+                    <a href="https://github.com/gu-aguiar" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </span>
+            </p>
+            <p>
+                Jéssica Pinheiro 
+                <span class="gitHub">
+                    <a href="https://github.com/Ferreirajesss" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </span>
+            </p>
+            <p>
+                Ryan Oliveira 
+                <span class="gitHub">
+                    <a href="https://github.com/defoutz" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </span>
+            </p>
+            <p>
+                Victor Augusto 
+                <span class="gitHub">
+                    <a href="https://github.com/GMMoedas" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                </span>
+            </p>
+        </div>
+    </footer>    
 </body>
 </html>
