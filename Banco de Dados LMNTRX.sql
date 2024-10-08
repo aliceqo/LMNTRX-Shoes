@@ -1,93 +1,81 @@
-CREATE DATABASE LMNTRX;
+create database LMNTRX;
+use LMNTRX;
 
-USE LMNTRX;
-
-CREATE TABLE produto_categoria (
-    id_produto INT NOT NULL,
-    id_categoria INT NOT NULL,
-    PRIMARY KEY (id_produto, id_categoria),
-    FOREIGN KEY (id_produto) REFERENCES produto(id_produto),
-    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
+create table usuario (
+ id_usuario int not null auto_increment primary key,
+ nome varchar(100) not null,
+ email varchar(255) unique not null,
+ senha varchar(255) not null,
+ telefone varchar(15) not null
 );
 
-CREATE TABLE categoria (
-    id_categoria INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    nome_categoria VARCHAR(100) NOT NULL
+create table endereco (
+ id_endereco int primary key auto_increment not null,
+ id_usuario int not null,
+ logradouro varchar (100) not null,
+ numero int not null,
+ complemento varchar (50),
+ cidade varchar (100) not null,
+ estado varchar (50) not null,
+ cep varchar (10) not null,
+ foreign key (id_usuario) references usuario (id_usuario)
 );
 
-CREATE TABLE usuario (
-    id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    email VARCHAR(255) UNIQUE NOT NULL,
-    senha VARCHAR(255) NOT NULL,
-    telefone VARCHAR(15) NOT NULL
+create table pedido (
+ id_pedido int not null auto_increment primary key,
+ id_usuario int not null,
+ data_pedido date not null,
+ status varchar (50) not null,
+ total decimal (10, 2) not null,
+ foreign key (id_usuario) references usuario (id_usuario)
 );
 
-
-CREATE TABLE produto (
-    id_produto INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    id_categoria INT NOT NULL,
-    nome VARCHAR(100) NOT NULL,
-    descricao TEXT NOT NULL,
-    preco DECIMAL(10, 2) NOT NULL,
-    estoque INT NOT NULL,
-    cor VARCHAR(50) NOT NULL,
-    marca VARCHAR(50) NOT NULL,
-    imagem_url VARCHAR(255) NOT NULL,
-    tamanho VARCHAR(50) NOT NULL,
-    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)  
+create table pagamento (
+ id_pagamento int primary key auto_increment not null,
+ id_pedido int not null,
+ metodo_pagamento varchar (50) not null,
+ status_pagamento varchar (50) not null,
+ valor decimal (10, 2) not null,
+ data_pagamento date not null,
+ foreign key (id_pedido) references pedido (id_pedido)
 );
 
-
-CREATE TABLE endereco (
-    logradouro VARCHAR(100) NOT NULL,
-    numero INT NOT NULL,
-    complemento VARCHAR(50),
-    cidade VARCHAR(100) NOT NULL,
-    estado VARCHAR(50) NOT NULL,
-    cep VARCHAR(10) NOT NULL
+create table item_pedido (
+ id_item_pedido int primary key auto_increment not null,
+ id_pedido int not null,
+ id_produto int not null,
+ quantidade int not null,
+ preco_unitario decimal (10, 2) not null,
+ foreign key (id_pedido) references pedido (id_pedido),
+ foreign key (id_produto) references produto (id_produto)
 );
 
-
-CREATE TABLE pedido (
-    id_pedido INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT NOT NULL,
-    data_pedido DATE NOT NULL,
-    status VARCHAR(50) NOT NULL,
-    total DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
+create table produto (
+ id_produto int primary key auto_increment not null,
+ id_categoria int not null,
+ nome varchar (100) not null,
+ descricao text not null,
+ preco decimal (10, 2) not null,
+ estoque int not null,
+ cor varchar (50) not null,
+ marca varchar (50) not null,
+ imagem_url varchar (255) not null,
+ tamanho varchar (50) not null,
+ foreign key (id_categoria) references categoria (id_categoria) 
 );
 
-
-CREATE TABLE pagamento (
-    id_pagamento INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    id_pedido INT NOT NULL,
-    metodo_pagamento VARCHAR(50) NOT NULL,
-    status_pagamento VARCHAR(50) NOT NULL,
-    valor DECIMAL(10, 2) NOT NULL,
-    data_pagamento DATE NOT NULL,
-    FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido)
+create table categoria (
+ id_categoria int primary key auto_increment not null,
+ nome_categoria varchar (100) not null
 );
 
-
-CREATE TABLE item_pedido (
-    id_item_pedido INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    id_pedido INT NOT NULL,
-    id_produto INT NOT NULL,
-    quantidade INT NOT NULL,
-    preco_unitario DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (id_pedido) REFERENCES pedido(id_pedido),
-    FOREIGN KEY (id_produto) REFERENCES produto(id_produto)
-);
-
-
-CREATE TABLE avaliacao (
-    id_avaliacao INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    id_usuario INT NOT NULL,
-    id_produto INT NOT NULL,
-    nota INT NOT NULL,
-    comentario TEXT,
-    data_avaliacao DATE NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
-    FOREIGN KEY (id_produto) REFERENCES produto(id_produto)
+create table avaliacao (
+ id_avaliacao int primary key auto_increment not null,
+ id_usuario int not null,
+ id_produto int not null,
+ nota int not null,
+ comentario text,
+ data_avaliacao date not null,
+ foreign key (id_usuario) references usuario (id_usuario),
+ foreign key (id_produto) references produto (id_produto) 
 );
