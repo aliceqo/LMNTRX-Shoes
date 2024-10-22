@@ -7,6 +7,7 @@ create table usuario (
  email varchar(255) unique not null,
  senha varchar(255) not null,
  telefone varchar(15) not null
+role ENUM('admin', 'vendedor', 'cliente') NOT NULL
 );
 
 create table endereco (
@@ -126,19 +127,6 @@ DELETE FROM tenis WHERE id_tenis = 1;
 
 
 );
-CREATE TABLE role (
-  id_role INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  nome_role VARCHAR(50) NOT NULL UNIQUE
-);
-INSERT INTO role (nome_role) VALUES ('admin'), ('vendedor'), ('cliente');
-
-CREATE TABLE usuario_role (
-  id_usuario INT NOT NULL,
-  id_role INT NOT NULL,
-  FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
-  FOREIGN KEY (id_role) REFERENCES role(id_role),
-  PRIMARY KEY (id_usuario, id_role)
-);
 
 CREATE TABLE acesso_pedido (
   id_pedido INT NOT NULL,
@@ -147,6 +135,12 @@ CREATE TABLE acesso_pedido (
   FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
   PRIMARY KEY (id_pedido, id_usuario)
 );
+
+INSERT INTO usuario (nome, email, senha, telefone, role) VALUES
+('Admin', 'admin@gmail.com', 'senhaadmin', '1234567890', 'admin'),
+('Vendedor', 'vendedor@gmail.com', 'senhavendedor', '0987654321', 'vendedor'),
+('Cliente', 'cliente@gmail.com', 'senhacliente', '1122334455', 'cliente');
+
 
 INSERT INTO pedido (id_usuario, descricao, data_pedido, status_pedido)
 VALUES (2, 'Pedido de tênis esportivo', NOW(), 'Pendente');
