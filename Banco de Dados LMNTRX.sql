@@ -21,6 +21,56 @@ create table endereco (
  foreign key (id_usuario) references usuario (id_usuario)
 );
 
+
+INSERT INTO categoria (nome) VALUES ('Automobilismo'), ('Aventura'), ('Basquete'), ('Caminhada'), ('Corrida'), ('Esporte-de-Quadra'), ('Streetwar'), ('Tennis e Squash'), ('Ofertas');
+
+INSERT INTO tenis (nome, marca, descricao, preco, estoque, categoria_id, data_cadastro) VALUES ('Tênis Qix Skate Retrô AM Preto Cinza Branco', 'Qix', 'Tênis de skate retrô em cores clássicas', 239.99, 20, (SELECT id_categoria FROM categoria WHERE nome = 'Streetwar'), NOW()), ('Tênis Puma MAPF1 Neo Cat - Branco', 'Puma', 'Tênis inspirado no automobilismo', 499.90, 15, (SELECT id_categoria FROM categoria WHERE nome = 'Automobilismo'), NOW()), ('Tênis Under Armour Basquete Spawn 3 Masculino - Vermelho+Branco', 'Under Armour', 'Tênis de basquete de alta performance', 237,49, 10, (SELECT id_categoria FROM categoria WHERE nome = 'Basquete'), NOW()), ('Tênis Adidas Ultra Energy Feminino - Rosa', 'Adidas', 'Tênis feminino para corrida com alta absorção de impacto', 227,99, 25, (SELECT id_categoria FROM categoria WHERE nome = 'Corrida'), NOW()), ('Tênis Feminino Mizuno Advance - Azul Claro+Bege', 'Mizuno', 'Tênis feminino ideal para caminhadas', 227,99, 30, (SELECT id_categoria FROM categoria WHERE nome = 'Caminhada'), NOW()), ('Tênis Asics Gel Resolution 9 Branco e Laranja', 'Asics', 'Tênis de alta performance para tennis', 999,00, 12, (SELECT id_categoria FROM categoria WHERE nome = 'Tennis e Squash'), NOW()), ('Tênis Fila Axilus Ace Masculino - Marinho+Vermelho', 'Fila', 'Tênis masculino de alta performance para quadras',284,99, 18, (SELECT id_categoria FROM categoria WHERE nome = 'Esporte-de-Quadra'), NOW()), ('Bota Cano Alto Macboot Guarani 02 Masculina - Kaki', 'Macboot', 'Bota masculina ideal para aventuras e caminhadas', 389.90, 10, (SELECT id_categoria FROM categoria WHERE nome = 'Aventura'), NOW()), ('Tênis skate TW branco e verde', 'TW', 'Tênis de skate com estilo moderno', 194.90, 20, (SELECT id_categoria FROM categoria WHERE nome = 'Streetwar'), NOW()), ('Tênis Air Jordan 1 Elevate Low Feminino', 'Air Jordan', 'Tênis feminino icônico, modelo Elevate Low', 1082.99, 8, (SELECT id_categoria FROM categoria WHERE nome = 'Streetwar'), NOW());
+
+
+CRUD - Categoria
+
+
+Create(inserir categoria)
+INSERT INTO categoria (nome) VALUES ('Nova Categoria');
+
+Read(consultar categoria)
+SELECT * FROM categoria;
+
+Update (Atualizar Categoria por ID)
+UPDATE categoria SET nome = 'Novo Nome da Categoria' WHERE id_categoria = 1;
+
+Delete (Excluir Categoria por ID)
+DELETE FROM categoria WHERE id_categoria = 1;
+
+CRUD - Tenis 
+Create (Inserir Tênis)
+
+INSERT INTO produto(
+ nome,
+ descricao,
+ preco decimal (10, 2),
+ estoque,
+ cor varchar,
+ marca varchar,
+ imagem_url,
+ tamanho
+)
+VALUES ('Nome do Tênis', 'Marca', 'Descrição', 399.99, 20, (SELECT id_categoria FROM categoria WHERE nome = 'Categoria Correspondente'), NOW());
+
+Read (Consultar Tênis)
+Consultar todos os tênis:
+SELECT * FROM tenis;
+
+Consultar tênis de uma categoria específica:
+SELECT * FROM tenis WHERE categoria_id = (SELECT id_categoria FROM categoria WHERE nome = 'Corrida');
+
+Update (Atualizar Tênis por ID)
+UPDATE tenis SET preco = 499.99, estoque = 15 WHERE id_tenis = 1;
+
+Delete (Excluir Tênis por ID)
+DELETE FROM tenis WHERE id_tenis = 1;
+
+
 create table pedido (
  id_pedido int not null auto_increment primary key,
  id_usuario int not null,
