@@ -3,8 +3,8 @@ A ênfase principal do projeto está no design, no banco de dados e na documenta
 
 ## Tecnologias Utilizadas:
 
-- Frontend: HTML, CSS, JavaScript
-- Backend: Python
+- Front-end: HTML, CSS, JavaScript
+- Back-end: Python
 - Banco de Dados: MySQL (utilizando MySQL Workbench)
 
 ## Funcionalidades:
